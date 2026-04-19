@@ -56,5 +56,6 @@ client.on("messageCreate", (message) => {
     message.reply("🏓 Pong!");
   }
 });
+require("dotenv").config();
 
 client.login(process.env.TOKEN);
