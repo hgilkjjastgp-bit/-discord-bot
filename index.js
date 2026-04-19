@@ -1,4 +1,16 @@
 index.jsindex.js
+require("dotenv").config();
+
+const { Client, GatewayIntentBits } = require("discord.js");
+
+const client = new Client({ intents: [...] });
+
+client.on("ready", () => {
+  console.log("Bot is ready");
+});
+
+client.login(process.env.TOKEN);
+
 if (message.content === "!اسرع") {
 
   const easy = ["بيت", "قلم", "شمس", "باب", "ماء", "نار", "قمر", "شجرة"];
@@ -50,12 +62,8 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", (message) => {
-  if (message.author.bot) return;
-
+  if (message.author.bot) return
   if (message.content === "!ping") {
-    message.reply("🏓 Pong!");
-  }
-});
-require("dotenv").config();
+    message.reply("🏓 Pong!") {
 
 client.login(process.env.TOKEN);
