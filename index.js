@@ -1,4 +1,4 @@
-index.js
+index.jsindex.js
 if (message.content === "!اسرع") {
 
   const easy = ["بيت", "قلم", "شمس", "باب", "ماء", "نار", "قمر", "شجرة"];
@@ -34,8 +34,8 @@ if (message.content === "!اسرع") {
   }
 
   message.reply(`⚡ المستوى: ${level}\n🧠 الكلمة: ${word}`);
-}
-const { Client, GatewayIntentBits } = require("discord.js");
+}  const { Client, GatewayIntentBits } = require("discord.js");
+require("dotenv").config();
 
 const client = new Client({
   intents: [
@@ -46,13 +46,15 @@ const client = new Client({
 });
 
 client.on("ready", () => {
-  console.log("Bot is ready!");
+  console.log(`Bot is ready: ${client.user.tag}`);
 });
 
 client.on("messageCreate", (message) => {
+  if (message.author.bot) return;
+
   if (message.content === "!ping") {
-    message.reply("pong 🏓");
+    message.reply("🏓 Pong!");
   }
 });
 
-client.login("MTQ5NTIyMjk3MDY1MjgyMzY0Mw.GE_hjX.ibq3mKXM2gxt5LSu3tz5qAVDe6mvtzKX6oKW4w");
+client.login(process.env.TOKEN);
